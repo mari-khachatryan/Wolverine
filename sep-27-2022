@@ -33,6 +33,34 @@ int main()
     return 0;
 }
 
+//karox e espes el linel
+
+#include <iostream>
+#include <string>
+
+std::string rtrim(std::string a);
+
+int main()
+{
+        std::string str = "hello  ";
+        std::cout << rtrim(str) << std::endl;
+return 0;
+}
+
+std::string rtrim(std::string a)
+{
+        std::string newword = "";
+        for(int j = 0; j < a.size(); ++j)
+        {
+         if(a[j] != ' ')
+         {
+         newword += a[j];
+         }
+        }
+return newword;
+}
+
+
 
 //lstrim(s)
 #include <iostream>

@@ -1,0 +1,143 @@
+//rtrim(s)
+#include <iostream>
+
+char * rtrim(char * arr, int n)
+{
+    int count = 0;
+    for(int i = n - 2; i >= 0; --i)
+    {
+        if(arr[i] == ' ') {
+            count++;
+        } else {
+            break;
+        }
+    }
+    
+    for(int i = 0,j = 0; j < n - count; ++j,++i){
+        arr[j] = arr[i];
+    }
+    return arr;   
+}
+
+int main()
+{
+    char str[] = "Mariam   ";
+    int size = sizeof(str)/sizeof(str[0]);
+    char * str2 = rtrim(str, size);
+    int size2 = 0;
+    size2 = sizeof(str2)/sizeof(char);
+    std::cout << "size2: " <<size2 <<std::endl;
+    for(int i = 0; i < size2; i++) {
+        std::cout << str2[i] << std::endl;
+    }
+    return 0;
+}
+
+
+//lstrim(s)
+#include <iostream>
+char * ltrim(char * arr, int n)
+{
+    int count = 0;
+    for(int i = 0; i < n - 1; ++i)
+    {
+        if(arr[i] == ' ') {
+            count++;
+        } else {
+            break;
+        }
+    }
+    std::cout << "1" << count << std::endl;
+    for(int i = count ,j = 0; j < n - count - 1; ++j,++i){
+        arr[j] = arr[i];
+    }
+    return arr;
+}
+
+int main()
+{
+    char str[] = "    Mariam";
+    int size = sizeof(str)/sizeof(str[0]);
+    ltrim(str, size);
+    
+    return 0;
+}
+
+//
+
+//split
+
+#include <iostream>
+   #include <string>
+   #include <vector>
+  
+   std::vector<std::string> split(std::string str,std::string str2)
+   {
+           std::vector <std::string > vp;
+           std::string my_str = "";
+           for (int i = 0; i <= str.size();++i)
+          {
+                  bool b = true;
+                  for (int j = 0; j < str2.size(); ++j)
+                  {
+                          if (str[i] == str2[j] || str[i] == '\0')
+                         {
+                                 vp.push_back(my_str);
+                                  my_str.clear();
+                                  b = false;
+                                  break;
+                          }
+ 
+                  }
+                  if (b == true)
+                  {
+                          my_str.push_back(str[i]);
+                  }
+          }
+          std::vector<std::string> vk;
+          for (int i = 0; i < vp.size(); ++i)
+          {
+                  if (vp[i] == "")
+                  {
+                          continue;
+                  }
+                  else {
+                          vk.push_back(vp[i]);
+                  }
+          }
+          return vk;
+  }
+  int main ()
+  {
+          std::string str1 = "he,lo,:wo,rld";
+ 
+          std::string str2 = ",:";
+ 
+          std::vector<std::string> vp = split(str1,str2);
+          for (int i = 0; i < vp.size(); ++i)
+          {
+                  std::cout << vp[i] << " ";
+          }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
